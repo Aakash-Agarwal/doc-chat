@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  backend:
+    build:
+      context: ./be
+    ports:
+      - "8000:8000"
+    environment:
+      - OPENAI_API_KEY=<<your open ai key>>
+
+  frontend:
+    build:
+      context: ./fe
+    ports:
+      - "7000:7000"
+    depends_on:
+      - backend
