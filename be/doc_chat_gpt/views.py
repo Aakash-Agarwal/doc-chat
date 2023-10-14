@@ -1,6 +1,5 @@
 import pickle
 import json
-import os
 
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
@@ -21,10 +20,9 @@ def setup_conversation_chain():
         memory_key='chat_history',
         return_messages=True
     )
-    openai_key = os.environ.get('OPENAI_API_KEY', '')
     
     conversation_chain = ConversationalRetrievalChain.from_llm(
-        llm=ChatOpenAI(openai_api_key=openai_key, model="gpt-4", temperature=0.9),
+        llm=ChatOpenAI(model="gpt-3.5-turbo", temperature=1.0),
         retriever=VectorStore.as_retriever(),
         memory=memory
     )
@@ -33,9 +31,11 @@ def setup_conversation_chain():
 
 
 def handle_user_input(request, query):
-    response = request.session.conversation({'question': query})
+    chain = request.session.conversation
+    response = chain({'question': query})    
     request.session.chat_history = response['chat_history']
     dd = deque(response['chat_history'], maxlen=1)
+    
     return dd.pop().content
 
 

@@ -139,7 +139,7 @@ button.accent {
 }
 
 .chat-container {
-    max-width: 700px;
+    max-width: 1080px;
     margin-left: auto;
     margin-right: auto;
     background-color: #fff;
@@ -173,6 +173,7 @@ button.accent {
 
 #chat-page ul li p {
     margin: 0;
+    white-space: pre-wrap;
 }
 
 #chat-page .event-message {

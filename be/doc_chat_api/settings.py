@@ -52,7 +52,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    "http://frontend:7000",
+    "http://localhost:7000",
 ]
 
 ROOT_URLCONF = 'doc_chat_api.urls'

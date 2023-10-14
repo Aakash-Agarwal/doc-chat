@@ -61,11 +61,11 @@ $(document).ready(function () {
 
         // Make an asynchronous GET request using jQuery
         $.ajax({
-            url: 'http://backend:8000/doc/chat?query=' + question,
+            url: 'http://localhost:8000/doc/chat?query=' + question,
             method: 'GET',
             dataType: 'json',
             headers: {
-                'Origin': 'http://frontend:7000',
+                'Origin': 'http://localhost:7000',
             },
             success: function (data) {
                 tobedeleted.remove();
@@ -112,11 +112,13 @@ $(document).ready(function () {
         messageArea.append(messageElement);
         var textElement = $('<p></p>');
         messageElement.append(textElement);
+        messageContent = message.content;
 
         if (message.sender === ai && message.messageType !== "JOIN") {
-            typeMessage(message.content, textElement);
+            messageElement.css('background-color', "beige");
+            typeMessage(messageContent, textElement);
         } else {
-            displayMessage(message.content, textElement);
+            displayMessage(messageContent, textElement);
         }
         messageArea.scrollTop(messageArea[0].scrollHeight);
 
