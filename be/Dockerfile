@@ -8,7 +8,8 @@ WORKDIR /app
 COPY . /app/
 
 # Install dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install -r requirements.txt
+RUN python install-certificate.py
 
 # Expose the port on which your Django app will run
 EXPOSE 8000

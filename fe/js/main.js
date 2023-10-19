@@ -7,7 +7,7 @@ $(document).ready(function () {
     var messageArea = $('#messageArea');
 
     var username = null;
-    var ai = "AI Assistant";
+    var ai = "AIVA";
 
     var colors = [
         '#2196F3', '#32c787', '#00BCD4', '#ff5652',
