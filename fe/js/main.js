@@ -11,7 +11,7 @@ $(document).ready(function () {
 
     var colors = [
         '#2196F3', '#32c787', '#00BCD4', '#ff5652',
-        '#ffc107', '#ff85af', '#FF9800', '#39bbb0'
+        '#ff85af', '#FF9800', '#39bbb0'
     ];
 
     usernameForm.on('submit', connect);
@@ -143,6 +143,9 @@ $(document).ready(function () {
     }
 
     function getAvatarColor(messageSender) {
+        if (messageSender === "AIVA") {
+            return "#ffc107";
+        }
         var hash = 0;
         for (var i = 0; i < messageSender.length; i++) {
             hash = 31 * hash + messageSender.charCodeAt(i);
