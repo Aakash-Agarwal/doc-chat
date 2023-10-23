@@ -36,7 +36,7 @@ $(document).ready(function () {
 
             message.sender = ai;
             message.messageType = "CHAT";
-            message.content = "Welcome " + username + "!!! I am AI Assistant. How may I help you?";
+            message.content = "Welcome " + username + "!!! I am AIVA, an Umantis help assistant. How may I help you?";
             onMessageReceived(message);
         }
         event.preventDefault();
